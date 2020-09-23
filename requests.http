@@ -1,0 +1,16 @@
+POST {{serverName}}/users/save
+Content-Type: application/json
+
+{
+  "access": "1",
+  "dateOfBirth": "Thu, 18 Jun 2020 00:00:00 GMT",
+  "email": "p.bednarski123@gmail.com",
+  "name": "janusz2132",
+  "password": "jakieshaslo"
+}
+
+###
+### All Users
+GET {{serverName}}/users/
+Accept: application/json
+
