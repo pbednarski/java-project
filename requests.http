@@ -1,3 +1,7 @@
+DELETE {{serverName}}/players/delete/5f843dc1c09506276166edca
+Content-Type: application/json
+
+###
 POST {{serverName}}/users/save
 Content-Type: application/json
 
@@ -5,7 +9,7 @@ Content-Type: application/json
   "access": "1",
   "dateOfBirth": "Thu, 18 Jun 2020 00:00:00 GMT",
   "email": "p.bednarski123@gmail.com",
-  "name": "janusz2132",
+  "name": "",
   "password": "jakieshaslo"
 }
 
@@ -13,4 +17,21 @@ Content-Type: application/json
 ### All Users
 GET {{serverName}}/users/
 Accept: application/json
+
+###
+### All Users
+GET {{serverName}}/players/
+Accept: application/json
+
+
+###
+POST {{serverName}}/players/save
+Content-Type: application/json
+
+{
+    "name": "Pawel",
+    "lastName": "jakisde",
+    "createdBy": "Pawelse"
+}
+
 
