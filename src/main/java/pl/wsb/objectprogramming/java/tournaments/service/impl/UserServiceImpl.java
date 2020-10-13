@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserById(UUID _id) {
+    public User getUserById(String _id) {
         if (userRepository.findById(_id).isPresent()) {
             return userRepository.findById(_id).get();
         } else {
@@ -48,16 +48,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User addUser(CreateUserDTO createUserDTO) {
+        User user = new User(createUserDTO.getName(), createUserDTO.getEmail(), createUserDTO.getDateOfBirth(), createUserDTO.getPassword());
+        return userRepository.save(user);
+    }
+
+    @Override
+    public User updateUser(UpdateUserDTO updateUserDTO, String uuid) {
         return null;
     }
 
     @Override
-    public User updateUser(UpdateUserDTO updateUserDTO, UUID uuid) {
-        return null;
-    }
-
-    @Override
-    public User deleteUser(UUID id) {
+    public User deleteUser(String id) {
         return null;
     }
 

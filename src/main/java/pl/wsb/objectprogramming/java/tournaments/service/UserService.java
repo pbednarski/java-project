@@ -11,7 +11,7 @@ public interface UserService {
 
     List<User> findAllUsers();
 
-    User getUserById(UUID _id);
+    User getUserById(String _id);
 
     User getUserByName(String userName);
 
@@ -19,8 +19,8 @@ public interface UserService {
 
     User addUser(CreateUserDTO createUserDTO);
 
-    User updateUser(UpdateUserDTO updateUserDTO, UUID uuid);
+    User updateUser(UpdateUserDTO updateUserDTO, String uuid);
 
-    User deleteUser(UUID id);
+    User deleteUser(String _id);
 
 }

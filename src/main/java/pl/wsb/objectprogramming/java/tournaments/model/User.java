@@ -10,13 +10,13 @@ import java.util.UUID;
 public class User {
 
     @Id
-    private UUID _id;
+    private String _id;
     private String name;
     private String email;
     private Date dateOfBirth;
     private String password;
 
-    public User(String name, String email, Date dateOfBirth, String password, Integer access) {
+    public User(String name, String email, Date dateOfBirth, String password) {
         this.name = name;
         this.email = email;
         this.dateOfBirth = dateOfBirth;

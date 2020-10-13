@@ -5,10 +5,11 @@ import pl.wsb.objectprogramming.java.tournaments.model.User;
 
 import java.util.UUID;
 
-public interface UserRepository extends MongoRepository<User, UUID> {
+public interface UserRepository extends MongoRepository<User, String> {
 
     User findByName(String userName);
 
     User findByEmail(String userEmail);
+
 
 }

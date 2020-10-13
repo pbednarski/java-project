@@ -26,7 +26,7 @@ public class UserController {
 
     @GetMapping(value = "/user/{_id}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<User> getUserById(@PathVariable(value = "_id") UUID _id) {
+    public ResponseEntity<User> getUserById(@PathVariable(value = "_id") String _id) {
         return new ResponseEntity<>(userService.getUserById(_id), HttpStatus.OK);
     }
 
