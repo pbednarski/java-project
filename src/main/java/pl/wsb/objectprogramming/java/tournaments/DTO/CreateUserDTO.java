@@ -1,29 +1,25 @@
-package pl.wsb.objectprogramming.java.tournaments.model;
+package pl.wsb.objectprogramming.java.tournaments.DTO;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 import java.util.UUID;
 
-@Document(collection = "user")
-public class User {
+public class CreateUserDTO {
 
-    @Id
-    private UUID _id;
     private String name;
     private String email;
     private Date dateOfBirth;
     private String password;
 
-    public User(String name, String email, Date dateOfBirth, String password, Integer access) {
+    public CreateUserDTO() {
+    }
+
+    public CreateUserDTO(String name, String email, Date dateOfBirth, String password) {
         this.name = name;
         this.email = email;
         this.dateOfBirth = dateOfBirth;
         this.password = password;
-    }
-
-    public User() {
     }
 
     public String getName() {
@@ -57,5 +53,4 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }

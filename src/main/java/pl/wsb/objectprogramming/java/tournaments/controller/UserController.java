@@ -5,32 +5,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.wsb.objectprogramming.java.tournaments.DTO.CreateUserDTO;
 import pl.wsb.objectprogramming.java.tournaments.model.User;
 import pl.wsb.objectprogramming.java.tournaments.service.UserService;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @GetMapping(value = "/")
-    public List<User> getAllUsers(){
+    @GetMapping(value = "/user")
+    public List<User> getAllUsers() {
         return userService.findAllUsers();
     }
 
-    @GetMapping(value = "/byUserName/{userName}")
-    public User getUserByUserName(@PathVariable("userName") String userName){
-        return userService.findByUserName(userName);
+    @GetMapping(value = "/user/{_id}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<User> getUserById(@PathVariable(value = "_id") UUID _id) {
+        return new ResponseEntity<>(userService.getUserById(_id), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/save")
-    public ResponseEntity<?> saveOrUpdateUser(@RequestBody User user){
-        userService.saveOrUpdateUser(user);
-        return new ResponseEntity("User added Succesfully...", HttpStatus.OK);
+    @PostMapping(value = "/user")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<User> createUser(@RequestBody CreateUserDTO createUserDTO) {
+        return new ResponseEntity<>(userService.addUser(createUserDTO), HttpStatus.CREATED);
     }
 
 }
