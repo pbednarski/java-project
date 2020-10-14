@@ -10,13 +10,14 @@ import java.util.UUID;
 public class User {
 
     @Id
-    private String _id;
+    private UUID _id;
     private String name;
     private String email;
     private Date dateOfBirth;
     private String password;
 
     public User(String name, String email, Date dateOfBirth, String password) {
+        this._id = UUID.randomUUID();
         this.name = name;
         this.email = email;
         this.dateOfBirth = dateOfBirth;
@@ -24,6 +25,10 @@ public class User {
     }
 
     public User() {
+    }
+
+    public UUID get_id() {
+        return _id;
     }
 
     public String getName() {

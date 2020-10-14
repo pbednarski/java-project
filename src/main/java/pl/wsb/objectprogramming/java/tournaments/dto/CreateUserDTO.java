@@ -1,17 +1,30 @@
-package pl.wsb.objectprogramming.java.tournaments.DTO;
+package pl.wsb.objectprogramming.java.tournaments.dto;
 
 import java.util.Date;
 
-public class UpdateUserDTO {
+public class CreateUserDTO {
 
+    private String name;
     private String email;
     private Date dateOfBirth;
     private String password;
 
-    public UpdateUserDTO(String email, Date dateOfBirth, String password) {
+    public CreateUserDTO() {
+    }
+
+    public CreateUserDTO(String name, String email, Date dateOfBirth, String password) {
+        this.name = name;
         this.email = email;
         this.dateOfBirth = dateOfBirth;
         this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {

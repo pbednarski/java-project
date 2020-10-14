@@ -1,33 +1,17 @@
-package pl.wsb.objectprogramming.java.tournaments.DTO;
-
-import org.springframework.data.annotation.Id;
+package pl.wsb.objectprogramming.java.tournaments.dto;
 
 import java.util.Date;
-import java.util.UUID;
 
-public class CreateUserDTO {
+public class UpdateUserDTO {
 
-    private String name;
     private String email;
     private Date dateOfBirth;
     private String password;
 
-    public CreateUserDTO() {
-    }
-
-    public CreateUserDTO(String name, String email, Date dateOfBirth, String password) {
-        this.name = name;
+    public UpdateUserDTO(String email, Date dateOfBirth, String password) {
         this.email = email;
         this.dateOfBirth = dateOfBirth;
         this.password = password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getEmail() {
