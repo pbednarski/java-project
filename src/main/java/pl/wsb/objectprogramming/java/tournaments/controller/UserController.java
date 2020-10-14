@@ -11,6 +11,7 @@ import pl.wsb.objectprogramming.java.tournaments.exceptions.UserNotFoundExceptio
 import pl.wsb.objectprogramming.java.tournaments.service.UserService;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/")
@@ -48,6 +49,16 @@ public class UserController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
         }
 
+    }
+
+    @DeleteMapping(value = "/users/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<?> deleteUsersById(@PathVariable(value = "id") UUID userId) {
+        try {
+            return new ResponseEntity<>(userService.deleteUser(userId), HttpStatus.OK);
+        } catch (UserNotFoundException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
     }
 
 

@@ -43,8 +43,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserByEmail(String userEmail) {
-        return null;
+    public List<User> getUserByEmail(String userEmail) throws UserNotFoundException {
+        List<User> userList = userRepository.findByEmail(userEmail);
+
+        if (userList.isEmpty()) {
+            throw new UserNotFoundException("There is no user with such EMAIL");
+        } else {
+            return userList;
+        }
+
     }
 
     @Override
@@ -64,8 +71,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User deleteUser(UUID id) {
-        return null;
+    public User deleteUser(UUID userId) throws UserNotFoundException {
+        User user = userRepository.findByUserId(userId);
+
+        if (user != null) {
+            userRepository.deleteById(userId);
+            return user;
+        } else {
+            throw new UserNotFoundException("There is no user with such ID");
+        }
     }
 
 }

@@ -15,12 +15,12 @@ public interface UserService {
 
     User getUserByName(String userName) throws UserNotFoundException;
 
-    User getUserByEmail(String userEmail);
+    List<User> getUserByEmail(String userEmail) throws UserNotFoundException;
 
     User addUser(CreateUserDTO createUserDTO) throws UserAlreadyExistException, UserNotFoundException;
 
     User updateUser(UpdateUserDTO updateUserDTO, String uuid);
 
-    User deleteUser(UUID userId);
+    User deleteUser(UUID userId) throws UserNotFoundException;
 
 }
